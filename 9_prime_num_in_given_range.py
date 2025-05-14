@@ -38,7 +38,7 @@ for num in range(start,end+1):
         primes.append(num)
 print('Prime list: ',primes)
 
-# optimized using sqrt(num)
+# 3. optimized using sqrt(num)
 primes=[]
 for num in range(start, end+1):
     flag=0
@@ -46,10 +46,9 @@ for num in range(start, end+1):
         flag=1
     if num==2 or num==3:
         primes.append(num)
-    if num%2==0:
+    if num%2==0 or num%3==0:
         continue
-    if num%3==0:
-        continue
+
     iter =2
     while iter<int(pow(num,0.5)):
         if num% iter==0:
@@ -60,7 +59,7 @@ for num in range(start, end+1):
         primes.append(num)
 print(primes)
 
-# optimized
+# 4. optimized skipping even & multiple of 3
 primes =[]
 for num in range(start, end+1):
     flag=0
@@ -68,10 +67,7 @@ for num in range(start, end+1):
         continue
     if num ==2 or num==3:
         primes.append(num)
-
-    if num%2==0:
-        continue
-    if num%3==0:
+    if num%2==0 or num%3==0:
         continue
     iter =3
     while iter <= int(pow(num,0.5)):
@@ -82,3 +78,20 @@ for num in range(start, end+1):
     if flag==0:
         primes.append(num)
 print('prime: ',primes)
+
+# recursive method
+def IsPrime(num):
+    if num<=1:
+        return False
+    for i in range(2, int(num**0.5)+1):
+        if num%i==0:
+            return False
+    return True
+def Find_Prime(start,end):
+    primes=[]
+    for num in range(start, end+1):
+        if IsPrime(num):
+            primes.append(num)
+    return primes
+print('Prime_no.: ',Find_Prime(start,end))
+
