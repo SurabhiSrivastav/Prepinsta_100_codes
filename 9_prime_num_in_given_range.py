@@ -87,7 +87,7 @@ def IsPrime(num):
         if num%i==0:
             return False
     return True
-def Find_Prime(start,end):
+def Find_Prime(start, end):
     primes=[]
     for num in range(start, end+1):
         if IsPrime(num):
