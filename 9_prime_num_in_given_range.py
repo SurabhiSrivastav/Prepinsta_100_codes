@@ -1,5 +1,3 @@
-from sympy.codegen.ast import continue_
-
 start= int(input('Enter start number: '))
 end = int(input('Enter end number: '))
 primes=[]
