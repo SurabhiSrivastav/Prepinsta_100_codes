@@ -9,7 +9,8 @@ def str_permutations(stl,l,r,unique_perm):
         unique_perm.add(''.join(stl))
     else:
         for i in range(l,r+1):
-            stl[l],stl[i] = stl[i], stl[l] #swap
+            stl[l],stl[i] = stl[i], stl[l] #swap abc 0-2, a-a--abc; 1-2,
+            # stl[l], stl[i] = stl[i], stl[l]  # backtrack
             str_permutations(stl,l+1,r,unique_perm) #recur
             stl[l],stl[i]=stl[i],stl[l] #backtrack
 
